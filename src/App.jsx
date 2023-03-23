@@ -1,38 +1,45 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  
-  return (
+return (
     <div className="App">
- <Countar></Countar>
-   
+     <Externalusearzx></Externalusearzx>
+     <Externalusearzx></Externalusearzx>
+     <Externalusearzx></Externalusearzx>
     </div>
   )
 }
-function Countar (){
-const [count,setCount]=useState(222)
-const incresCount = ()=>setCount(count + 1);
-const dicrice = ()=>setCount(count - 1);
-
-
-// const incresCount = ()=>{
-//   const newcount = count + 1;
-//   setCount(newcount);
-
-
+function Externalusearzx() {
+  const[usears,setUsears]=useState([]);
+  useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/users')
+   .then(res=>res.json())
+   .then(data=>setUsears(data))
+  },[])
   return(
-  <div>
-<h1>Count :{count}</h1>
+    <div>
+<h2>
+  Extearnal usears: {usears.length}
+  {
+    usears.map(usear => <Data name={usear.name} email ={usear.email}></Data>)
+  }
+</h2>
 
-  <button onClick={incresCount}>Increase</button>
- <button onClick={dicrice}>Dicrice</button>
-  </div>
+    </div>
   )
 }
+function Data(props) {
 
+ return(
+  <div className='containar'>
+     <li>Name :{props.name}</li>
+     <p>Email: {props.email} </p>
+  </div>
+ )
+}
 
 export default App
 
