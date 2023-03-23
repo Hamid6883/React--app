@@ -4,35 +4,32 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const prodackteds = [
-    {name:"laptop", Price:"25000"},
-    {name:'phone', Price :"20000"},
-    {name:"whatch" ,Price :"2000"},
-    {name:'pc', Price :"200000"}
-  ]
+  
   return (
     <div className="App">
-      <lode name='vilo'></lode>
-     {
-  prodackteds.map(prodackted=><Product name={prodackted.name} Price ={prodackted.Price}></Product>)
-     }
-
-      {/* <Product></Product>
-      <Product></Product>
-      <Product></Product>
-      <Product ></Product>
-     */}
-     
+ <Countar></Countar>
+   
     </div>
   )
 }
-function Product (props){
+function Countar (){
+const [count,setCount]=useState(222)
+const incresCount = ()=>setCount(count + 1);
+const dicrice = ()=>setCount(count - 1);
+
+
+// const incresCount = ()=>{
+//   const newcount = count + 1;
+//   setCount(newcount);
+
+
   return(
-    <div className="prodact">
-      <h3>Name : {props.name}</h3>
-      <p>Price :{props.Price}</p>
-    </div>
+  <div>
+<h1>Count :{count}</h1>
+
+  <button onClick={incresCount}>Increase</button>
+ <button onClick={dicrice}>Dicrice</button>
+  </div>
   )
 }
 
